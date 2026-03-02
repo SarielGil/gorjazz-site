@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GORJAZZ - הרכב בלוז וג'אז | ניו יורק, ניו אורלינס ותל אביב</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #d4af37; /* Gold */
+            --accent: #722f37; /* Wine */
+            --bg: #fffcf9;
+            --text: #1a1a1a;
+            --light-text: #4a4a4a;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1514525253344-f814d871d87f?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .logo-main {
+            font-size: 6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero-tagline {
+            font-size: 1.8rem;
+            max-width: 900px;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: var(--accent);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 20px auto 0;
+        }
+
+        /* About Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.25rem;
+            margin-bottom: 25px;
+            color: var(--light-text);
+        }
+
+        .about-image {
+            height: 600px;
+            background: url('https://images.unsplash.com/photo-1511192336575-5a79af67a629?q=80&w=1000&auto=format&fit=crop') center/cover;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        /* Features/Services */
+        .services-wrapper {
+            background-color: #fcf8f2;
+            padding: 100px 30px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            background: var(--white);
+            padding: 50px 40px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--secondary);
+        }
+
+        .service-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .service-item p {
+            color: var(--light-text);
+            font-size: 1.1rem;
+        }
+
+        /* Live Section */
+        .live-shows {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .live-shows .section-title {
+            color: var(--white);
+        }
+
+        .show-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+        }
+
+        .show-row {
+            border-bottom: 1px solid #333;
+            transition: background 0.3s;
+        }
+
+        .show-row:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .show-cell {
+            padding: 25px;
+            font-size: 1.2rem;
+        }
+
+        .show-date {
+            color: var(--secondary);
+            font-weight: 700;
+            width: 20%;
+        }
+
+        .show-venue {
+            width: 50%;
+        }
+
+        .show-action {
+            width: 30%;
+            text-align: left;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+        }
+
+        .social-box {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .social-link {
+            font-size: 1.3rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            transition: 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        footer {
+            padding: 50px;
+            background: #000;
+            color: #777;
+            text-align: center;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 900px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            .logo-main {
+                font-size: 3.5rem;
+                letter-spacing: 8px;
+            }
+            .hero-tagline {
+                font-size: 1.4rem;
+            }
+            .show-cell {
+                padding: 15px 10px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="logo-main">GORJAZZ</h1>
+        <p class="hero-tagline">מסע מוזיקלי רומנטי מגשר בין ניו יורק לניו אורלינס ועד תל אביב</p>
+        <a href="#contact" class="cta-btn">להזמנת הופעות ואירועים</a>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">הסיפור שלנו</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <p>GORJAZZ הוא הרכב בלוז וג'אז ישראלי המשלב את הקלאסיקות הגדולות עם וייב מודרני ואנרגטי. אנחנו מביאים את החספוס של ניו אורלינס והתחכום של ניו יורק היישר ללב תל אביב.</p>
+                <p>המוזיקה שלנו נוצרה כדי ללוות רגעים של יין משובח, שיחות עמוקות ואווירה אינטימית ויוקרתית. בין אם זה מועדון אפלולי או קבלת פנים חגיגית, אנחנו דואגים שהצלילים שלנו יהיו הפסקול המושלם.</p>
+            </div>
+            <div class="about-image"></div>
+        </div>
+    </section>
+
+    <div class="services-wrapper">
+        <h2 class="section-title">מה אנחנו עושים</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>קבלות פנים לחתונות</h3>
+                <p>שדרגו את יום החתונה שלכם עם ליווי מוזיקלי אלגנטי. ג'אז ובלוז חי בקבלת הפנים יוצר אווירה יוקרתית ומרגשת שהאורחים לא ישכחו.</p>
+            </div>
+            <div class="service-item">
+                <h3>הופעות מועדונים</h3>
+                <p>הופעות חיות במועדוני ג'אז וברים תל אביביים. וייב של מנהטן במרחק נגיעה, עם רפרטואר עשיר וביצועים סוחפים.</p>
+            </div>
+            <div class="service-item">
+                <h3>אירועים עסקיים</h3>
+                <p>התאמה מלאה לאירועי חברה, השקות וערבי בוטיק. מוזיקה שמשרה ביטחון, רוגע וסטייל בלתי מתפשר.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="live-shows" id="shows">
+        <h2 class="section-title">הופעות קרובות</h2>
+        <table class="show-table">
+            <tr class="show-row">
+                <td class="show-cell show-date">24.03.2026</td>
+                <td class="show-cell show-venue">ג'אז בר - נחלת בנימין, תל אביב</td>
+                <td class="show-cell show-action">21:00 | כניסה חופשית</td>
+            </tr>
+            <tr class="show-row">
+                <td class="show-cell show-date">12.04.2026</td>
+                <td class="show-cell show-venue">מועדון הבלוז - דרום העיר</td>
+                <td class="show-cell show-action">20:30 | כרטיסים בקופה</td>
+            </tr>
+            <tr class="show-row">
+                <td class="show-cell show-date">05.05.2026</td>
+                <td class="show-cell show-venue">קבלת פנים פרטית - יקב בוטיק</td>
+                <td class="show-cell show-action">אירוע סגור</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">צרו קשר</h2>
+        <p>מעוניינים להזמין אותנו לאירוע שלכם? רוצים להתעדכן בהופעות הבאות?</p>
+        <div class="social-box">
+            <a href="https://www.instagram.com/gorjazz_duo/" target="_blank" class="social-link">Instagram</a>
+            <a href="mailto:gorjazz.duo@gmail.com" class="social-link">Email</a>
+            <a href="tel:0500000000" class="social-link">Call Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 GORJAZZ DUO. ALL RIGHTS RESERVED.</p>
+        <p>DESIGN BY ANDY</p>
+    </footer>
+
+</body>
+</html>
